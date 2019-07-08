@@ -40,10 +40,12 @@ class CategoryController extends Controller
 
         $validatedData = $request->validate([
             'categoryName' => 'required',
+            'imageName' => 'required',
         ]);    
 
         $category = new Category();
         $category->name = $request->get('categoryName');
+        $category->imageName = $request->get('imageName');
         $category->save();
 
         return response()->json([
@@ -70,7 +72,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return response()->json($category);
     }
 
     /**
@@ -82,7 +85,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'categoryName' => 'required',
+            'imageName' => 'required',
+        ]);    
+        
+        $category = Category::find($id);
+        $category->name = $request->get('categoryName');
+        $category->imageName = $request->get('imageName');
+        $category->save();
     }
 
     /**
@@ -93,6 +104,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        $allCategory = Category::all();
+
+        return response()->json($allCategory);
     }
 }

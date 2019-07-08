@@ -36,22 +36,23 @@
                                                     <td style="width:15%">ลำดับ</td>
                                                     <td style="width:25%">รูป</td>
                                                     <td style="width:15%">ชื่อหมวดหมู่</td>
-                                                    <td style="width:15%">รายละเอียด</td>
                                                     <td style="width:15%">แก้ไข</td>
                                                     <td style="width:15%">ลบ</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="categoryList in categoryLists">
+                                                <tr v-for="(categoryList,index) in categoryLists">
                                                     <td>
                                                         <label class="kt-checkbox kt-checkbox--single">
-                                                            <input type="checkbox"><span></span>
+                                                            {{index+1}}
                                                         </label>
                                                     </td>
                                                     <td>
-                                                        <span class="kt-widget11__sub">{{categoryList.name}}</span>
+                                                        <img class="img-thumb" :src="/storage/+categoryList.imageName">
                                                     </td>
-                                                    <td>19,200</td>
+                                                    <td><span class="kt-widget11__sub">{{categoryList.name}}</span></td>
+                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
+                                                    <td><button v-on:click="deleteCategory(categoryList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -71,6 +72,13 @@
     </div>
 </template>
 
+<style scope>
+.img-thumb {
+    width:100;
+    height:100px;
+}
+</style>
+
 <script>
     export default {
         mounted() {
@@ -80,13 +88,20 @@
             return {
                 categoryLists:[],
                 categoryList:{
+                    _id:'',
                     name:'',
+                    imageName:'',
                 }
             }
         },
         methods: {
             getCategoryList() {
                 axios.get('/api/category').then(response=>{
+                    this.categoryLists=response.data;
+                });
+            },
+            deleteCategory(index)    {
+                axios.delete('/api/category/'+index).then(response=>{
                     this.categoryLists=response.data;
                 });
             }

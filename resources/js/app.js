@@ -6,7 +6,6 @@
 
 require('./bootstrap');
 import VueRouter from 'vue-router'
-
 window.Vue = require('vue');
 Vue.use(VueRouter)
 
@@ -22,6 +21,7 @@ Vue.use(VueRouter)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('dashboard', require('./components/Dashboard.vue').default);
+Vue.component('image-upload', require('./components/image/imageUpload.vue').default);
 
 const routes = [
     { 
@@ -33,6 +33,9 @@ const routes = [
     { 
       path: '/category/create', component: require('./components/category/CategoryCreate.vue').default,
     },
+    { 
+      path: '/category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
+    },
   ]
 
 /**
@@ -42,7 +45,8 @@ const routes = [
  */
 
 const router = new VueRouter({
-    routes // short for `routes: routes`
+    routes ,
+    mode: 'history'
   })
 
 const app = new Vue({

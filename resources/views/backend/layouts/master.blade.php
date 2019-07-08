@@ -143,32 +143,20 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- begin:: Aside -->
 						<div class="kt-header__brand kt-grid__item  " id="kt_header_brand">
 							<div class="kt-header__brand-logo">
-								<a href="demo6/index.html">
+								<router-link to="/dashboard">
 									<img alt="Logo" src="/admin/media/logos/logo-6.png" />
-								</a>
+								</router-link>
 							</div>
 						</div>
 
 						<!-- end:: Aside -->
 
 						<!-- begin:: Title -->
-						<h3 class="kt-header__title kt-grid__item">
-							Applications
+						<h3 class="kt-header__title kt-grid__item mr-auto">
+							Gadget Project
 						</h3>
 
 						<!-- end:: Title -->
-
-						<!-- begin: Header Menu -->
-						<button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
-						<div class="kt-header-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_header_menu_wrapper">
-							<div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
-								<ul class="kt-menu__nav ">
-									<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="demo6/index.html" class="kt-menu__link "><span class="kt-menu__link-text">Dashboard</span></a></li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- end: Header Menu -->
 
 						<!-- begin:: Header Topbar -->
 						<div class="kt-header__topbar">

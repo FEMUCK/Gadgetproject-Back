@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/category','Api\CategoryController');
+
+Route::post('/image','Api\ImageController@StoreImage');

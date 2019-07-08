@@ -6,7 +6,7 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                สร้างหมวดหมู่
+                                แก้ไขหมวดหมู่
                             </h3>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                                         <span v-if="errors.imageName" class="error">{{errors.imageName}}</span>
                                         </div>
                                         <div class="col-lg-12 mt-3">
-                                        <button v-on:click="createCategory()" type="button" class="btn btn-success btn-pill btn-upper btn-bold btn-font-sm kt-subheader-search__submit-btn">สร้างหมวดหมู่</button>
+                                        <button v-on:click="editCategory()" type="button" class="btn btn-warning btn-pill btn-upper btn-bold btn-font-sm kt-subheader-search__submit-btn">แก้ไขหมวดหมู่</button>
                                         </div>
                                     </div>
                                 </div>
@@ -45,6 +45,9 @@
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
     export default {
+        mounted() {
+            this.getCategoryInfo();
+        },
         components: {
             vueDropzone: vue2Dropzone
         },
@@ -64,22 +67,28 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             }
         },
         methods:{
-            createCategory()    {
-                axios.post('/api/category',{
-                    imageName:this.imageName,
-                    categoryName:this.categoryName,
-                }).then(response=>{
-                    this.$router.push('/category');
-                }).catch(error=>{
-                    if(error.response.status == 422) {
-                        this.errors = error.response.data.errors;
-                    }
+            getCategoryInfo() {
+                axios.get('/api/category/'+this.$route.params.id+'/edit').then(response=>{
+                    this.categoryName=response.data.name;
+                    this.imageName=response.data.imageName;
                 });
             },
             success: function(file, response)
                 {
                     this.imageName=response;
-                }
+                },
+            editCategory()  {
+                axios.put('/api/category/'+this.$route.params.id,{
+                    categoryName:this.categoryName,
+                    imageName:this.imageName,
+                }).then(response=>{
+                    this.$router.push('/category')
+                }).catch(error=>{
+                    if(error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                    }
+                });
+            }
         }
     }
 </script>
