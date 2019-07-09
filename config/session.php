@@ -18,8 +18,8 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
-
+    'driver' => 'mongodb',
+    
     /*
     |--------------------------------------------------------------------------
     | Session Lifetime

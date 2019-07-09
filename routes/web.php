@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('backend.layouts.master');
+
+    if(session('admin') == true) {
+        return view('backend.layouts.master');
+    }
+    else {
+        abort(404);
+    }
+    
 });

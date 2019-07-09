@@ -20,3 +20,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('/category','Api\CategoryController');
 
 Route::post('/image','Api\ImageController@StoreImage');
+
+Route::get('/member','Api\MemberController@ShowMember');
+
+Route::get('/member/{id}/edit','Api\MemberController@InfoMember');
+
+Route::put('/member/{id}','Api\MemberController@EditMember');
+
+Route::post('/member/approve/{id}','Api\MemberController@ApproveMember');
+
+Route::post('/member/cancle-approve/{id}','Api\MemberController@CancleApproveMember');
+
+Route::post('/member/admin/{id}','Api\MemberController@AdminMember');
+
+Route::post('/member/cancle-admin/{id}','Api\MemberController@CancleAdminMember');
+
+Route::post('/member/ban/{id}','Api\MemberController@BanMember');
+
+Route::post('/member/cancle-ban/{id}','Api\MemberController@CancleBanMember');
+
+Route::resource('/product','Api\ProductController');

@@ -36,6 +36,21 @@ const routes = [
     { 
       path: '/category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
     },
+    { 
+      path: '/member', component: require('./components/member/MemberList.vue').default,
+    },
+    { 
+      path: '/member/:id/edit', component: require('./components/member/MemberEdit.vue').default,
+    },
+    { 
+      path: '/product', component: require('./components/product/ProductList.vue').default,
+    },
+    { 
+      path: '/product/create', component: require('./components/product/ProductCreate.vue').default,
+    },
+    { 
+      path: '/product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
+    },
   ]
 
 /**
@@ -46,7 +61,6 @@ const routes = [
 
 const router = new VueRouter({
     routes ,
-    mode: 'history'
   })
 
 const app = new Vue({

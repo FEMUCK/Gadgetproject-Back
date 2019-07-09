@@ -78,6 +78,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="/admin/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
 		<link href="/admin/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
 		<link href="/admin/vendors/general/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
 
 		<!--end:: Global Optional Vendors -->
 
@@ -127,6 +128,8 @@ License: You must have a valid license purchased only from themeforest(the above
 							<ul class="kt-menu__nav ">
 								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><router-link to="/" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-protection"></i><span class="kt-menu__link-text">แดชบอร์ด</span></router-link></li>
 								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><router-link to="/category" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-list-2"></i><span class="kt-menu__link-text">หมวดหมู่</span></router-link></li>
+								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><router-link to="/member" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-user"></i><span class="kt-menu__link-text">สมาชิก</span></router-link></li>
+								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><router-link to="/product" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box"></i><span class="kt-menu__link-text">สินค้า</span></router-link></li>
 							</ul>
 						</div>
 					</div>
@@ -1818,7 +1821,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="/admin/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js" type="text/javascript"></script>
 		<script src="/admin/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js" type="text/javascript"></script>
 		<script src="/admin/vendors/general/nouislider/distribute/nouislider.js" type="text/javascript"></script>
-		<script src="/admin/vendors/general/owl.carousel/dist/owl.carousel.js" type="text/javascript"></script>
 		<script src="/admin/vendors/general/autosize/dist/autosize.js" type="text/javascript"></script>
 		<script src="/admin/vendors/general/clipboard/dist/clipboard.min.js" type="text/javascript"></script>
 		<script src="/admin/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script>

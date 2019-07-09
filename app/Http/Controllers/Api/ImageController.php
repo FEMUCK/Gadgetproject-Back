@@ -15,7 +15,7 @@ class ImageController extends Controller
         $imageUpload = new Image();
         $imageUpload->image = $imageName;
         $imageUpload->save();
-
+        
         return response()->json($imageUpload->image);
     }
 }
