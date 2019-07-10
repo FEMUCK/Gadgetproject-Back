@@ -13,11 +13,6 @@
 
 Route::get('/', function () {
 
-    if(session('admin') == true) {
-        return view('backend.layouts.master');
-    }
-    else {
-        abort(404);
-    }
+    return view('backend.layouts.master');
     
 });

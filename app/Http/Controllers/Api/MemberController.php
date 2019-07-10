@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hash;
 use App\Member;
 
 class MemberController extends Controller
-{
+{   
+
     public function ShowMember()    {
         $member = Member::all();
         return response()->json($member);

@@ -21,6 +21,8 @@ Route::resource('/category','Api\CategoryController');
 
 Route::post('/image','Api\ImageController@StoreImage');
 
+Route::post('/admin/login','Api\AdminController@Login');
+
 Route::get('/member','Api\MemberController@ShowMember');
 
 Route::get('/member/{id}/edit','Api\MemberController@InfoMember');

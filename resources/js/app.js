@@ -22,34 +22,60 @@ Vue.use(VueRouter)
 
 Vue.component('dashboard', require('./components/Dashboard.vue').default);
 Vue.component('image-upload', require('./components/image/imageUpload.vue').default);
+Vue.component('member-login', require('./components/member/Login.vue').default);
 
 const routes = [
-    { 
-      path: '/', component: require('./components/Dashboard.vue').default,
+
+      { path: '/admin', component: require('./components/Dashboard.vue').default,
+      beforeEnter: (to, from, next) => {
+        if(localStorage.getItem('login')){
+          next()
+        }
+        else{
+          router.push('/');
+        }  
+      },
+      children: [
+        { 
+          path: '/dashboard', component: require('./components/Blank.vue').default,
+        },
+        { 
+          path: '/category', component: require('./components/category/CategoryList.vue').default,
+        },
+        { 
+          path: '/category/create', component: require('./components/category/CategoryCreate.vue').default,
+        },
+        { 
+          path: '/category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
+        },
+        { 
+          path: '/member', component: require('./components/member/MemberList.vue').default,
+        },
+        { 
+          path: '/member/:id/edit', component: require('./components/member/MemberEdit.vue').default,
+        },
+        { 
+          path: '/product', component: require('./components/product/ProductList.vue').default,
+        },
+        { 
+          path: '/product/create', component: require('./components/product/ProductCreate.vue').default,
+        },
+        { 
+          path: '/product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
+        },
+      ]
     },
+
     { 
-      path: '/category', component: require('./components/category/CategoryList.vue').default,
-    },
-    { 
-      path: '/category/create', component: require('./components/category/CategoryCreate.vue').default,
-    },
-    { 
-      path: '/category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
-    },
-    { 
-      path: '/member', component: require('./components/member/MemberList.vue').default,
-    },
-    { 
-      path: '/member/:id/edit', component: require('./components/member/MemberEdit.vue').default,
-    },
-    { 
-      path: '/product', component: require('./components/product/ProductList.vue').default,
-    },
-    { 
-      path: '/product/create', component: require('./components/product/ProductCreate.vue').default,
-    },
-    { 
-      path: '/product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
+      path: '/', component: require('./components/member/Login.vue').default,
+      beforeEnter: (to, from, next) => {
+        if(localStorage.getItem('login')){
+          router.push('/dashboard');
+        }
+        else{
+          next();
+        }  
+      },
     },
   ]
 
