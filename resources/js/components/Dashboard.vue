@@ -27,16 +27,16 @@
                             <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
                                 <ul class="kt-menu__nav ">
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
-                                        <router-link to="/dashboard" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-protection"></i><span class="kt-menu__link-text">แดชบอร์ด</span></router-link>
+                                        <router-link to="/admin/dashboard" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-protection"></i><span class="kt-menu__link-text">แดชบอร์ด</span></router-link>
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
-                                        <router-link to="/category" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-list-2"></i><span class="kt-menu__link-text">หมวดหมู่</span></router-link>
+                                        <router-link to="/admin/category" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-list-2"></i><span class="kt-menu__link-text">หมวดหมู่</span></router-link>
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
-                                        <router-link to="/member" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-user"></i><span class="kt-menu__link-text">สมาชิก</span></router-link>
+                                        <router-link to="/admin/member" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-user"></i><span class="kt-menu__link-text">สมาชิก</span></router-link>
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
-                                        <router-link to="/product" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box"></i><span class="kt-menu__link-text">สินค้า</span></router-link>
+                                        <router-link to="/admin/product" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box"></i><span class="kt-menu__link-text">สินค้า</span></router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -54,7 +54,7 @@
                             <!-- begin:: Aside -->
                             <div class="kt-header__brand kt-grid__item  " id="kt_header_brand">
                                 <div class="kt-header__brand-logo">
-                                    <router-link to="/dashboard">
+                                    <router-link to="/admin/dashboard">
                                         <img alt="Logo" src="/admin/media/logos/logo-6.png" />
                                     </router-link>
                                 </div>

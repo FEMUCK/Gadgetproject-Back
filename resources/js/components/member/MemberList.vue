@@ -65,7 +65,7 @@
                                                         <span v-else><i class="fas fa-times"></i></span>
                                                     </td>
                                                     <td>
-                                                     <router-link :to="'/member/'+memberList._id+'/edit'" class="btn btn-info btn-pill">แก้ไขระดับ</router-link>
+                                                     <router-link :to="'/admin/member/'+memberList._id+'/edit'" class="btn btn-info btn-pill">แก้ไขระดับ</router-link>
                                                     </td>
                                                     <td>
                                                         <button v-on:click="memberCancleApprove(memberList._id)" v-if="memberList.activate === true" type="button" class="btn btn-pill btn-warning">ยกเลิกอนุมัติ</button>

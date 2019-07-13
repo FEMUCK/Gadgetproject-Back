@@ -78,7 +78,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     categoryName:this.categoryName,
                     categoryIcon:this.categoryIcon,
                 }).then(response=>{
-                    this.$router.push('/category');
+                    this.$router.push('/admin/category');
                 }).catch(error=>{
                     if(error.response.status == 422) {
                         this.errors = error.response.data.errors;

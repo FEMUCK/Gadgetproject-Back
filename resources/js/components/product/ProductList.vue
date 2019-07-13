@@ -12,7 +12,7 @@
                         <div class="kt-portlet__head-toolbar">
                             <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                                 <li class="nav-item">
-                                    <router-link to="/product/create" class="nav-link active">
+                                    <router-link to="/admin/product/create" class="nav-link active">
                                         สร้างสินค้า
                                     </router-link>
                                 </li>
@@ -57,7 +57,7 @@
                                                     <td>{{productList.category}}</td>
                                                     <td>{{productList.price1}}</td>
                                                     <td>{{productList.quantity}}</td>
-                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/product/'+productList._id+'/edit'">แก้ไข</router-link></td>
+                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/product/'+productList._id+'/edit'">แก้ไข</router-link></td>
                                                     <td><button v-on:click="deleteProduct(productList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
                                                 </tr>
                                             </tbody>

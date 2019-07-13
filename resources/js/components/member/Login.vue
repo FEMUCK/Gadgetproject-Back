@@ -59,7 +59,7 @@ body {
                     localStorage.email = response.data.email;
                     localStorage.firstname = response.data.firstname;
                     localStorage.lastname = response.data.lastname;
-                    this.$router.push('/dashboard');
+                    this.$router.push('/admin/dashboard');
                 }).catch(error=>{
                     if(error.response.status == 401) {
                         this.loginError = error.response.data.message;

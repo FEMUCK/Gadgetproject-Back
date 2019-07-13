@@ -27,7 +27,7 @@
                                             <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
                                                 <label>หมวดหมู่ *</label>
                                                 <select class="form-control form-control-pill" v-model="productCategory">
-                                                    <option :value="categoryList.name" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
+                                                    <option :value="categoryList._id" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
                                                 </select>
                                             </div>
                                             <span v-if="errors.productCategory" class="error">{{errors.productCategory}}</span>
@@ -194,7 +194,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     productQuantity:this.productQuantity,
                     imageName:this.imageName,
                 }).then(response=>{
-                    this.$router.push('/product');
+                    this.$router.push('/admin/product');
                 }).catch(error=>{
                     if(error.response.status == 422) {
                         this.errors = error.response.data.errors;

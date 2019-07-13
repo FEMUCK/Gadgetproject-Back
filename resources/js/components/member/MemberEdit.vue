@@ -65,7 +65,7 @@
                 axios.put('/api/member/'+this.$route.params.id,{
                     memberTier:this.memberTier,
                 }).then(response=>{
-                    this.$router.push('/member')
+                    this.$router.push('/admin/member')
                 }).catch(error=>{
                     if(error.response.status == 422) {
                         this.errors = error.response.data.errors;

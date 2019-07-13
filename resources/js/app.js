@@ -37,31 +37,31 @@ const routes = [
       },
       children: [
         { 
-          path: '/dashboard', component: require('./components/Blank.vue').default,
+          path: 'dashboard', component: require('./components/Blank.vue').default,
         },
         { 
-          path: '/category', component: require('./components/category/CategoryList.vue').default,
+          path: 'category', component: require('./components/category/CategoryList.vue').default,
         },
         { 
-          path: '/category/create', component: require('./components/category/CategoryCreate.vue').default,
+          path: 'category/create', component: require('./components/category/CategoryCreate.vue').default,
         },
         { 
-          path: '/category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
+          path: 'category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
         },
         { 
-          path: '/member', component: require('./components/member/MemberList.vue').default,
+          path: 'member', component: require('./components/member/MemberList.vue').default,
         },
         { 
-          path: '/member/:id/edit', component: require('./components/member/MemberEdit.vue').default,
+          path: 'member/:id/edit', component: require('./components/member/MemberEdit.vue').default,
         },
         { 
-          path: '/product', component: require('./components/product/ProductList.vue').default,
+          path: 'product', component: require('./components/product/ProductList.vue').default,
         },
         { 
-          path: '/product/create', component: require('./components/product/ProductCreate.vue').default,
+          path: 'product/create', component: require('./components/product/ProductCreate.vue').default,
         },
         { 
-          path: '/product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
+          path: 'product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
         },
       ]
     },

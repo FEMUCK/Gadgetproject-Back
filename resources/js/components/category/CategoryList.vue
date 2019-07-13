@@ -12,7 +12,7 @@
                         <div class="kt-portlet__head-toolbar">
                             <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                                 <li class="nav-item">
-                                    <router-link to="/category/create" class="nav-link active">
+                                    <router-link to="/admin/category/create" class="nav-link active">
                                         สร้างหมวดหมู่
                                     </router-link>
                                 </li>
@@ -55,7 +55,7 @@
                                                         <span v-html="categoryList.icon"></span>
                                                     </td>
                                                     <td><span class="kt-widget11__sub">{{categoryList.name}}</span></td>
-                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
+                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
                                                     <td><button v-on:click="deleteCategory(categoryList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
                                                 </tr>
                                             </tbody>

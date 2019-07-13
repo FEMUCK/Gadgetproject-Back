@@ -2725,7 +2725,7 @@ __webpack_require__.r(__webpack_exports__);
         categoryName: this.categoryName,
         categoryIcon: this.categoryIcon
       }).then(function (response) {
-        _this.$router.push('/category');
+        _this.$router.push('/admin/category');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this.errors = error.response.data.errors;
@@ -2848,7 +2848,7 @@ __webpack_require__.r(__webpack_exports__);
         categoryIcon: this.categoryIcon,
         imageName: this.imageName
       }).then(function (response) {
-        _this2.$router.push('/category');
+        _this2.$router.push('/admin/category');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this2.errors = error.response.data.errors;
@@ -3097,7 +3097,7 @@ __webpack_require__.r(__webpack_exports__);
         localStorage.firstname = response.data.firstname;
         localStorage.lastname = response.data.lastname;
 
-        _this.$router.push('/dashboard');
+        _this.$router.push('/admin/dashboard');
       })["catch"](function (error) {
         if (error.response.status == 401) {
           _this.loginError = error.response.data.message;
@@ -3192,7 +3192,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.put('/api/member/' + this.$route.params.id, {
         memberTier: this.memberTier
       }).then(function (response) {
-        _this2.$router.push('/member');
+        _this2.$router.push('/admin/member');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this2.errors = error.response.data.errors;
@@ -3597,7 +3597,7 @@ __webpack_require__.r(__webpack_exports__);
         productQuantity: this.productQuantity,
         imageName: this.imageName
       }).then(function (response) {
-        _this2.$router.push('/product');
+        _this2.$router.push('/admin/product');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this2.errors = error.response.data.errors;
@@ -3841,7 +3841,7 @@ __webpack_require__.r(__webpack_exports__);
         productQuantity: this.productQuantity,
         imageName: this.imageName
       }).then(function (response) {
-        _this3.$router.push('/product');
+        _this3.$router.push('/admin/product');
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this3.errors = error.response.data.errors;
@@ -40086,7 +40086,7 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "kt-menu__link ",
-                                attrs: { to: "/dashboard" }
+                                attrs: { to: "/admin/dashboard" }
                               },
                               [
                                 _c("i", {
@@ -40115,7 +40115,7 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "kt-menu__link ",
-                                attrs: { to: "/category" }
+                                attrs: { to: "/admin/category" }
                               },
                               [
                                 _c("i", {
@@ -40144,7 +40144,7 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "kt-menu__link ",
-                                attrs: { to: "/member" }
+                                attrs: { to: "/admin/member" }
                               },
                               [
                                 _c("i", {
@@ -40173,7 +40173,7 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "kt-menu__link ",
-                                attrs: { to: "/product" }
+                                attrs: { to: "/admin/product" }
                               },
                               [
                                 _c("i", {
@@ -40225,14 +40225,18 @@ var render = function() {
                         "div",
                         { staticClass: "kt-header__brand-logo" },
                         [
-                          _c("router-link", { attrs: { to: "/dashboard" } }, [
-                            _c("img", {
-                              attrs: {
-                                alt: "Logo",
-                                src: "/admin/media/logos/logo-6.png"
-                              }
-                            })
-                          ])
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/admin/dashboard" } },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  alt: "Logo",
+                                  src: "/admin/media/logos/logo-6.png"
+                                }
+                              })
+                            ]
+                          )
                         ],
                         1
                       )
@@ -43378,7 +43382,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "nav-link active",
-                            attrs: { to: "/category/create" }
+                            attrs: { to: "/admin/category/create" }
                           },
                           [
                             _vm._v(
@@ -43466,7 +43470,7 @@ var render = function() {
                                         staticClass: "btn btn-pill btn-warning",
                                         attrs: {
                                           to:
-                                            "/category/" +
+                                            "/admin/category/" +
                                             categoryList._id +
                                             "/edit"
                                         }
@@ -44003,7 +44007,7 @@ var render = function() {
                                         staticClass: "btn btn-info btn-pill",
                                         attrs: {
                                           to:
-                                            "/member/" +
+                                            "/admin/member/" +
                                             memberList._id +
                                             "/edit"
                                         }
@@ -44326,9 +44330,7 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "option",
-                                      {
-                                        domProps: { value: categoryList.name }
-                                      },
+                                      { domProps: { value: categoryList._id } },
                                       [_vm._v(_vm._s(categoryList.name))]
                                     )
                                   }),
@@ -45109,9 +45111,7 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "option",
-                                      {
-                                        domProps: { value: categoryList.name }
-                                      },
+                                      { domProps: { value: categoryList._id } },
                                       [_vm._v(_vm._s(categoryList.name))]
                                     )
                                   }),
@@ -45802,7 +45802,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "nav-link active",
-                            attrs: { to: "/product/create" }
+                            attrs: { to: "/admin/product/create" }
                           },
                           [
                             _vm._v(
@@ -45892,7 +45892,7 @@ var render = function() {
                                         staticClass: "btn btn-pill btn-warning",
                                         attrs: {
                                           to:
-                                            "/product/" +
+                                            "/admin/product/" +
                                             productList._id +
                                             "/edit"
                                         }
@@ -60891,31 +60891,31 @@ var routes = [{
     }
   },
   children: [{
-    path: '/dashboard',
+    path: 'dashboard',
     component: __webpack_require__(/*! ./components/Blank.vue */ "./resources/js/components/Blank.vue")["default"]
   }, {
-    path: '/category',
+    path: 'category',
     component: __webpack_require__(/*! ./components/category/CategoryList.vue */ "./resources/js/components/category/CategoryList.vue")["default"]
   }, {
-    path: '/category/create',
+    path: 'category/create',
     component: __webpack_require__(/*! ./components/category/CategoryCreate.vue */ "./resources/js/components/category/CategoryCreate.vue")["default"]
   }, {
-    path: '/category/:id/edit',
+    path: 'category/:id/edit',
     component: __webpack_require__(/*! ./components/category/CategoryEdit.vue */ "./resources/js/components/category/CategoryEdit.vue")["default"]
   }, {
-    path: '/member',
+    path: 'member',
     component: __webpack_require__(/*! ./components/member/MemberList.vue */ "./resources/js/components/member/MemberList.vue")["default"]
   }, {
-    path: '/member/:id/edit',
+    path: 'member/:id/edit',
     component: __webpack_require__(/*! ./components/member/MemberEdit.vue */ "./resources/js/components/member/MemberEdit.vue")["default"]
   }, {
-    path: '/product',
+    path: 'product',
     component: __webpack_require__(/*! ./components/product/ProductList.vue */ "./resources/js/components/product/ProductList.vue")["default"]
   }, {
-    path: '/product/create',
+    path: 'product/create',
     component: __webpack_require__(/*! ./components/product/ProductCreate.vue */ "./resources/js/components/product/ProductCreate.vue")["default"]
   }, {
-    path: '/product/:id/edit',
+    path: 'product/:id/edit',
     component: __webpack_require__(/*! ./components/product/ProductEdit.vue */ "./resources/js/components/product/ProductEdit.vue")["default"]
   }]
 }, {
@@ -61866,8 +61866,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Hawkeye\Desktop\Gadgetproject-Back\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Hawkeye\Desktop\Gadgetproject-Back\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\JIMMY-PC\Desktop\Gadgetproject-Back\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\JIMMY-PC\Desktop\Gadgetproject-Back\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

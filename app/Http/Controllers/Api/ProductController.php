@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -45,10 +46,13 @@ class ProductController extends Controller
             'productPrice_1' => 'required|numeric',
             'imageName' => 'required',
         ]);  
-
+        
+        $category = Category::find($request->get('productCategory'));
+        
         $product = new Product();
         $product->name = $request->get('productName');
-        $product->category = $request->get('productCategory');
+        $product->category_id = $category->_id;
+        $product->category = $category->name;
         $product->description = $request->get('productDescription');
         $product->discount = $request->get('productDiscount');
         $product->quantity = $request->get('productQuantity');
@@ -107,10 +111,13 @@ class ProductController extends Controller
             'productPrice_1' => 'required|numeric',
             'imageName' => 'required',
         ]);  
+            
+        $category = Category::find($request->get('productCategory'));
 
         $product = Product::find($id);
         $product->name = $request->get('productName');
-        $product->category = $request->get('productCategory');
+        $product->category_id = $category->_id;
+        $product->category = $category->name;
         $product->description = $request->get('productDescription');
         $product->discount = $request->get('productDiscount');
         $product->quantity = $request->get('productQuantity');
