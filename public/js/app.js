@@ -2688,6 +2688,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2697,6 +2704,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       categoryName: '',
+      categoryIcon: '',
       errors: [],
       imageName: [],
       dropzoneOptions: {
@@ -2714,7 +2722,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('/api/category', {
         imageName: this.imageName,
-        categoryName: this.categoryName
+        categoryName: this.categoryName,
+        categoryIcon: this.categoryIcon
       }).then(function (response) {
         _this.$router.push('/category');
       })["catch"](function (error) {
@@ -2787,6 +2796,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2799,6 +2815,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       categoryName: '',
+      categoryIcon: '',
       errors: [],
       imageName: [],
       dropzoneOptions: {
@@ -2816,6 +2833,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/category/' + this.$route.params.id + '/edit').then(function (response) {
         _this.categoryName = response.data.name;
+        _this.categoryIcon = response.data.icon;
         _this.imageName = response.data.imageName;
       });
     },
@@ -2827,6 +2845,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.put('/api/category/' + this.$route.params.id, {
         categoryName: this.categoryName,
+        categoryIcon: this.categoryIcon,
         imageName: this.imageName
       }).then(function (response) {
         _this2.$router.push('/category');
@@ -2931,6 +2950,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getCategoryList();
@@ -2940,6 +2963,7 @@ __webpack_require__.r(__webpack_exports__);
       categoryLists: [],
       categoryList: {
         _id: '',
+        icon: '',
         name: '',
         imageName: ''
       }
@@ -42949,6 +42973,50 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.categoryIcon,
+                                      expression: "categoryIcon"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ไอคอน (font-awesome)"
+                                  },
+                                  domProps: { value: _vm.categoryIcon },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.categoryIcon = $event.target.value
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm._m(2)
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.categoryIcon
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.categoryIcon))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "col-lg-12 mt-3" },
@@ -43016,6 +43084,16 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "kt-input-icon__icon kt-input-icon__icon--right" },
+      [_c("span", [_c("i", { staticClass: "la la-puzzle-piece" })])]
+    )
   },
   function() {
     var _vm = this
@@ -43117,6 +43195,50 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.categoryIcon,
+                                      expression: "categoryIcon"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ไอคอน (font-awesome)"
+                                  },
+                                  domProps: { value: _vm.categoryIcon },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.categoryIcon = $event.target.value
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm._m(2)
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.categoryIcon
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.categoryIcon))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "col-lg-12 mt-3" },
@@ -43184,6 +43306,16 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "kt-input-icon__icon kt-input-icon__icon--right" },
+      [_c("span", [_c("i", { staticClass: "la la-puzzle-piece" })])]
+    )
   },
   function() {
     var _vm = this
@@ -43310,6 +43442,14 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", [
+                                  _c("span", {
+                                    domProps: {
+                                      innerHTML: _vm._s(categoryList.icon)
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
                                   _c(
                                     "span",
                                     { staticClass: "kt-widget11__sub" },
@@ -43392,7 +43532,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("td", { staticStyle: { width: "15%" } }, [_vm._v("ลำดับ")]),
         _vm._v(" "),
-        _c("td", { staticStyle: { width: "25%" } }, [_vm._v("รูป")]),
+        _c("td", { staticStyle: { width: "20%" } }, [_vm._v("รูป")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "5%" } }, [_vm._v("ไอคอน")]),
         _vm._v(" "),
         _c("td", { staticStyle: { width: "15%" } }, [_vm._v("ชื่อหมวดหมู่")]),
         _vm._v(" "),

@@ -34,7 +34,8 @@
                                             <thead>
                                                 <tr>
                                                     <td style="width:15%">ลำดับ</td>
-                                                    <td style="width:25%">รูป</td>
+                                                    <td style="width:20%">รูป</td>
+                                                    <td style="width:5%">ไอคอน</td>
                                                     <td style="width:15%">ชื่อหมวดหมู่</td>
                                                     <td style="width:15%">แก้ไข</td>
                                                     <td style="width:15%">ลบ</td>
@@ -49,6 +50,9 @@
                                                     </td>
                                                     <td>
                                                         <img class="img-thumb" :src="/storage/+categoryList.imageName">
+                                                    </td>
+                                                    <td>
+                                                        <span v-html="categoryList.icon"></span>
                                                     </td>
                                                     <td><span class="kt-widget11__sub">{{categoryList.name}}</span></td>
                                                     <td><router-link class="btn btn-pill btn-warning" :to="'/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
@@ -89,6 +93,7 @@
                 categoryLists:[],
                 categoryList:{
                     _id:'',
+                    icon:'',
                     name:'',
                     imageName:'',
                 }

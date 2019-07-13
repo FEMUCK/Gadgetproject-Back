@@ -23,6 +23,13 @@
                                             <span v-if="errors.categoryName" class="error">{{errors.categoryName}}</span>
                                         </div>
                                         <div class="col-lg-12 mt-3">
+                                            <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                                <input v-model="categoryIcon" type="text" class="form-control form-control-pill" placeholder="ไอคอน (font-awesome)">
+                                                <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-puzzle-piece"></i></span></span>
+                                            </div>
+                                            <span v-if="errors.categoryIcon" class="error">{{errors.categoryIcon}}</span>
+                                        </div>
+                                        <div class="col-lg-12 mt-3">
                                         <label>รูปภาพ</label>
                                         <vue-dropzone @vdropzone-success="success" ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
                                         <span v-if="errors.imageName" class="error">{{errors.imageName}}</span>
@@ -51,6 +58,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
         data()  {
             return {
                 categoryName:'',
+                categoryIcon:'',
                 errors:[],
                 imageName:[],
 
@@ -68,6 +76,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 axios.post('/api/category',{
                     imageName:this.imageName,
                     categoryName:this.categoryName,
+                    categoryIcon:this.categoryIcon,
                 }).then(response=>{
                     this.$router.push('/category');
                 }).catch(error=>{

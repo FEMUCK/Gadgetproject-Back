@@ -40,11 +40,13 @@ class CategoryController extends Controller
 
         $validatedData = $request->validate([
             'categoryName' => 'required',
+            'categoryIcon' => 'required',
             'imageName' => 'required',
         ]);    
 
         $category = new Category();
         $category->name = $request->get('categoryName');
+        $category->icon = $request->get('categoryIcon');
         $category->imageName = $request->get('imageName');
         $category->save();
 
@@ -87,11 +89,13 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'categoryName' => 'required',
+            'categoryIcon' => 'required',
             'imageName' => 'required',
         ]);    
         
         $category = Category::find($id);
         $category->name = $request->get('categoryName');
+        $category->icon = $request->get('categoryIcon');
         $category->imageName = $request->get('imageName');
         $category->save();
     }
