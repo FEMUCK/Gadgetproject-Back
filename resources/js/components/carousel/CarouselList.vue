@@ -6,14 +6,14 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                                            หมวดหมู่
+                                                            สไลด์
                                                         </h3>
                         </div>
                         <div class="kt-portlet__head-toolbar">
                             <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                                 <li class="nav-item">
-                                    <router-link to="/admin/category/create" class="nav-link active">
-                                        สร้างหมวดหมู่
+                                    <router-link to="/admin/carousel/create" class="nav-link active">
+                                        สร้างสไลด์
                                     </router-link>
                                 </li>
                             </ul>
@@ -35,28 +35,26 @@
                                                 <tr>
                                                     <td style="width:15%">ลำดับ</td>
                                                     <td style="width:20%">รูป</td>
-                                                    <td style="width:5%">ไอคอน</td>
-                                                    <td style="width:15%">ชื่อหมวดหมู่</td>
+                                                    <td style="width:5%">ชื่อสไลด์</td>
+                                                    <td style="width:15%">ตำแหน่ง</td>
                                                     <td style="width:15%">แก้ไข</td>
                                                     <td style="width:15%">ลบ</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="(categoryList,index) in categoryLists">
+                                                <tr v-for="(carouselList,index) in carouselLists">
                                                     <td>
                                                         <label class="kt-checkbox kt-checkbox--single">
                                                             {{index+1}}
                                                         </label>
                                                     </td>
                                                     <td>
-                                                        <img class="img-thumb" :src="'/storage/'+categoryList.imageName">
+                                                        <img class="img-thumb" :src="'https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/'+carouselList.image">
                                                     </td>
-                                                    <td>
-                                                        <span v-html="categoryList.icon"></span>
-                                                    </td>
-                                                    <td><span class="kt-widget11__sub">{{categoryList.name}}</span></td>
-                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
-                                                    <td><button v-on:click="deleteCategory(categoryList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
+                                                    <td><span class="kt-widget11__sub">{{carouselList.name}}</span></td>
+                                                    <td>{{carouselList.arrange}}</td>
+                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/carousel/'+carouselList._id+'/edit'">แก้ไข</router-link></td>
+                                                    <td><button v-on:click="deleteCarousel(carouselList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -86,28 +84,28 @@
 <script>
     export default {
         mounted() {
-            this.getCategoryList();
+            this.getCarouselList();
         },
         data()  {
             return {
-                categoryLists:[],
-                categoryList:{
+                carouselLists:[],
+                carouselList:{
                     _id:'',
-                    icon:'',
                     name:'',
-                    imageName:'',
+                    image:'',
+                    arrange:'',
                 }
             }
         },
         methods: {
-            getCategoryList() {
-                axios.get('/api/category').then(response=>{
-                    this.categoryLists=response.data;
+            getCarouselList() {
+                axios.get('/api/carousel').then(response=>{
+                    this.carouselLists=response.data;
                 });
             },
-            deleteCategory(index)    {
-                axios.delete('/api/category/'+index).then(response=>{
-                    this.categoryLists=response.data;
+            deleteCarousel(index)    {
+                axios.delete('/api/carousel/'+index).then(response=>{
+                    this.carouselLists=response.data;
                 });
             }
         }

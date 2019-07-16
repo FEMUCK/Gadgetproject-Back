@@ -63,6 +63,15 @@ const routes = [
         { 
           path: 'product/:id/edit', component: require('./components/product/ProductEdit.vue').default,
         },
+        { 
+          path: 'carousel', component: require('./components/carousel/CarouselList.vue').default,
+        },
+        { 
+          path: 'carousel/create', component: require('./components/carousel/CarouselCreate.vue').default,
+        },
+        { 
+          path: 'carousel/:id/edit', component: require('./components/carousel/CarouselEdit.vue').default,
+        },
       ]
     },
 

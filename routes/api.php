@@ -42,3 +42,5 @@ Route::post('/member/ban/{id}','Api\MemberController@BanMember');
 Route::post('/member/cancle-ban/{id}','Api\MemberController@CancleBanMember');
 
 Route::resource('/product','Api\ProductController');
+
+Route::resource('/carousel','Api\CarouselController');

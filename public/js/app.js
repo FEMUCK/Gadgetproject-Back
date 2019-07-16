@@ -2610,6 +2610,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2626,6 +2629,380 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.removeItem('lastname');
       localStorage.removeItem('login');
       this.$router.push('/');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  data: function data() {
+    return {
+      carouselName: '',
+      carouselArrange: '',
+      carouselLink: '',
+      errors: [],
+      imageName: [],
+      dropzoneOptions: {
+        url: '/api/image',
+        thumbnailWidth: 150,
+        maxFilesize: 2,
+        maxFile: 1,
+        addRemoveLinks: true
+      }
+    };
+  },
+  methods: {
+    createCarousel: function createCarousel() {
+      var _this = this;
+
+      axios.post('/api/carousel', {
+        imageName: this.imageName,
+        carouselName: this.carouselName,
+        carouselArrange: this.carouselArrange,
+        carouselLink: this.carouselLink
+      }).then(function (response) {
+        _this.$router.push('/admin/carousel');
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this.errors = error.response.data.errors;
+        }
+      });
+    },
+    success: function success(file, response) {
+      this.imageName = response;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.getCarouselInfo();
+  },
+  components: {
+    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  data: function data() {
+    return {
+      carouselName: '',
+      carouselArrange: '',
+      carouselLink: '',
+      errors: [],
+      imageName: [],
+      dropzoneOptions: {
+        url: '/api/image',
+        thumbnailWidth: 150,
+        maxFilesize: 2,
+        maxFile: 1,
+        addRemoveLinks: true
+      }
+    };
+  },
+  methods: {
+    getCarouselInfo: function getCarouselInfo() {
+      var _this = this;
+
+      axios.get('/api/carousel/' + this.$route.params.id + '/edit').then(function (response) {
+        _this.carouselName = response.data.name;
+        _this.carouselArrange = response.data.arrange;
+        _this.carouselLink = response.data.link;
+        _this.imageName = response.data.image;
+      });
+    },
+    editCarousel: function editCarousel() {
+      var _this2 = this;
+
+      axios.put('/api/carousel/' + this.$route.params.id, {
+        imageName: this.imageName,
+        carouselName: this.carouselName,
+        carouselArrange: this.carouselArrange,
+        carouselLink: this.carouselLink
+      }).then(function (response) {
+        _this2.$router.push('/admin/carousel');
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          _this2.errors = error.response.data.errors;
+        }
+      });
+    },
+    success: function success(file, response) {
+      this.imageName = response;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.getCarouselList();
+  },
+  data: function data() {
+    return {
+      carouselLists: [],
+      carouselList: {
+        _id: '',
+        name: '',
+        image: '',
+        arrange: ''
+      }
+    };
+  },
+  methods: {
+    getCarouselList: function getCarouselList() {
+      var _this = this;
+
+      axios.get('/api/carousel').then(function (response) {
+        _this.carouselLists = response.data;
+      });
+    },
+    deleteCarousel: function deleteCarousel(index) {
+      var _this2 = this;
+
+      axios["delete"]('/api/carousel/' + index).then(function (response) {
+        _this2.carouselLists = response.data;
+      });
     }
   }
 });
@@ -8459,6 +8836,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.kt-footer {\r\n    bottom:0;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.img-thumb {\r\n    width:100;\r\n    height:100px;\n}\r\n", ""]);
 
 // exports
 
@@ -39374,6 +39770,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category/CategoryList.vue?vue&type=style&index=0&scope=true&lang=css&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/category/CategoryList.vue?vue&type=style&index=0&scope=true&lang=css& ***!
@@ -40184,6 +40610,35 @@ var render = function() {
                                   "span",
                                   { staticClass: "kt-menu__link-text" },
                                   [_vm._v("สินค้า")]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "kt-menu__item  kt-menu__item--active",
+                            attrs: { "aria-haspopup": "true" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "kt-menu__link ",
+                                attrs: { to: "/admin/carousel" }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass:
+                                    "kt-menu__link-icon flaticon2-document"
+                                }),
+                                _c(
+                                  "span",
+                                  { staticClass: "kt-menu__link-text" },
+                                  [_vm._v("สไลด์")]
                                 )
                               ]
                             )
@@ -42894,6 +43349,707 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "kt-container mt-3" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-6" }, [
+        _c(
+          "div",
+          {
+            staticClass: "kt-portlet kt-portlet--tabs kt-portlet--height-fluid"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "kt-portlet__body" }, [
+              _c("form", { staticClass: "kt-form" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "kt-grid kt-grid--desktop kt-grid--ver-desktop"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "kt-grid__item kt-grid__item--middle" },
+                      [
+                        _c("div", { staticClass: "row kt-margin-r-10" }, [
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ชื่อสไลด์ *")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselName,
+                                      expression: "carouselName"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ชื่อสไลด์"
+                                  },
+                                  domProps: { value: _vm.carouselName },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselName = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselName
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselName))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ตำแหน่ง")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselArrange,
+                                      expression: "carouselArrange"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "number",
+                                    placeholder: "ตำแหน่ง"
+                                  },
+                                  domProps: { value: _vm.carouselArrange },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselArrange = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselArrange
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselArrange))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ลิงค์")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselLink,
+                                      expression: "carouselLink"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: { type: "text", placeholder: "ลิงค์" },
+                                  domProps: { value: _vm.carouselLink },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselLink = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselLink
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselLink))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-lg-12 mt-3" },
+                            [
+                              _c("label", [_vm._v("รูปภาพ *")]),
+                              _vm._v(" "),
+                              _c("vue-dropzone", {
+                                ref: "myVueDropzone",
+                                attrs: {
+                                  id: "dropzone",
+                                  options: _vm.dropzoneOptions
+                                },
+                                on: { "vdropzone-success": _vm.success }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors.imageName
+                                ? _c("span", { staticClass: "error" }, [
+                                    _vm._v(_vm._s(_vm.errors.imageName))
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-success btn-pill btn-upper btn-bold btn-font-sm kt-subheader-search__submit-btn",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.createCarousel()
+                                  }
+                                }
+                              },
+                              [_vm._v("สร้างสไลด์")]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _vm._v(
+            "\n                            สร้างสไลด์\n                        "
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "kt-container mt-3" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-6" }, [
+        _c(
+          "div",
+          {
+            staticClass: "kt-portlet kt-portlet--tabs kt-portlet--height-fluid"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "kt-portlet__body" }, [
+              _c("form", { staticClass: "kt-form" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "kt-grid kt-grid--desktop kt-grid--ver-desktop"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "kt-grid__item kt-grid__item--middle" },
+                      [
+                        _c("div", { staticClass: "row kt-margin-r-10" }, [
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ชื่อสไลด์ *")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselName,
+                                      expression: "carouselName"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ชื่อสไลด์"
+                                  },
+                                  domProps: { value: _vm.carouselName },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselName = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselName
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselName))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ตำแหน่ง")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselArrange,
+                                      expression: "carouselArrange"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "number",
+                                    placeholder: "ตำแหน่ง"
+                                  },
+                                  domProps: { value: _vm.carouselArrange },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselArrange = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselArrange
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselArrange))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ลิงค์")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselLink,
+                                      expression: "carouselLink"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: { type: "text", placeholder: "ลิงค์" },
+                                  domProps: { value: _vm.carouselLink },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselLink = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselLink
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselLink))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-lg-12 mt-3" },
+                            [
+                              _c("label", [_vm._v("รูปภาพ *")]),
+                              _vm._v(" "),
+                              _c("vue-dropzone", {
+                                ref: "myVueDropzone",
+                                attrs: {
+                                  id: "dropzone",
+                                  options: _vm.dropzoneOptions
+                                },
+                                on: { "vdropzone-success": _vm.success }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors.imageName
+                                ? _c("span", { staticClass: "error" }, [
+                                    _vm._v(_vm._s(_vm.errors.imageName))
+                                  ])
+                                : _vm._e()
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-warning btn-pill btn-upper btn-bold btn-font-sm kt-subheader-search__submit-btn",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editCarousel()
+                                  }
+                                }
+                              },
+                              [_vm._v("แก้ไขสไลด์")]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _vm._v(
+            "\n                            แก้ไขสไลด์\n                        "
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "kt-container mt-5" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-12" }, [
+        _c(
+          "div",
+          {
+            staticClass: "kt-portlet kt-portlet--tabs kt-portlet--height-fluid"
+          },
+          [
+            _c("div", { staticClass: "kt-portlet__head" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
+                _c(
+                  "ul",
+                  {
+                    staticClass:
+                      "nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand",
+                    attrs: { role: "tablist" }
+                  },
+                  [
+                    _c(
+                      "li",
+                      { staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link active",
+                            attrs: { to: "/admin/carousel/create" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    สร้างสไลด์\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "kt-portlet__body" }, [
+              _c("div", { staticClass: "tab-content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane active",
+                    attrs: { id: "kt_widget11_tab1_content" }
+                  },
+                  [
+                    _c("div", { staticClass: "kt-widget11" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c("table", { staticClass: "table" }, [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.carouselLists, function(
+                              carouselList,
+                              index
+                            ) {
+                              return _c("tr", [
+                                _c("td", [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass:
+                                        "kt-checkbox kt-checkbox--single"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                                        " +
+                                          _vm._s(index + 1) +
+                                          "\n                                                    "
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c("img", {
+                                    staticClass: "img-thumb",
+                                    attrs: {
+                                      src:
+                                        "https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/" +
+                                        carouselList.image
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c(
+                                    "span",
+                                    { staticClass: "kt-widget11__sub" },
+                                    [_vm._v(_vm._s(carouselList.name))]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(carouselList.arrange))
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "btn btn-pill btn-warning",
+                                        attrs: {
+                                          to:
+                                            "/admin/carousel/" +
+                                            carouselList._id +
+                                            "/edit"
+                                        }
+                                      },
+                                      [_vm._v("แก้ไข")]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-pill btn-danger",
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteCarousel(
+                                            carouselList._id
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("ลบ")]
+                                  )
+                                ])
+                              ])
+                            }),
+                            0
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head-label" }, [
+      _c("h3", { staticClass: "kt-portlet__head-title" }, [
+        _vm._v(
+          "\n                                                        สไลด์\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("td", { staticStyle: { width: "15%" } }, [_vm._v("ลำดับ")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "20%" } }, [_vm._v("รูป")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "5%" } }, [_vm._v("ชื่อสไลด์")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "15%" } }, [_vm._v("ตำแหน่ง")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "15%" } }, [_vm._v("แก้ไข")]),
+        _vm._v(" "),
+        _c("td", { staticStyle: { width: "15%" } }, [_vm._v("ลบ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category/CategoryCreate.vue?vue&type=template&id=62383a20&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/category/CategoryCreate.vue?vue&type=template&id=62383a20& ***!
@@ -43440,7 +44596,7 @@ var render = function() {
                                   _c("img", {
                                     staticClass: "img-thumb",
                                     attrs: {
-                                      src: /storage/ + categoryList.imageName
+                                      src: "/storage/" + categoryList.imageName
                                     }
                                   })
                                 ]),
@@ -45860,7 +47016,7 @@ var render = function() {
                                   _c("img", {
                                     staticClass: "img-thumb",
                                     attrs: {
-                                      src: /storage/ + productList.image
+                                      src: "/storage/" + productList.image
                                     }
                                   })
                                 ]),
@@ -60917,6 +62073,15 @@ var routes = [{
   }, {
     path: 'product/:id/edit',
     component: __webpack_require__(/*! ./components/product/ProductEdit.vue */ "./resources/js/components/product/ProductEdit.vue")["default"]
+  }, {
+    path: 'carousel',
+    component: __webpack_require__(/*! ./components/carousel/CarouselList.vue */ "./resources/js/components/carousel/CarouselList.vue")["default"]
+  }, {
+    path: 'carousel/create',
+    component: __webpack_require__(/*! ./components/carousel/CarouselCreate.vue */ "./resources/js/components/carousel/CarouselCreate.vue")["default"]
+  }, {
+    path: 'carousel/:id/edit',
+    component: __webpack_require__(/*! ./components/carousel/CarouselEdit.vue */ "./resources/js/components/carousel/CarouselEdit.vue")["default"]
   }]
 }, {
   path: '/',
@@ -61117,6 +62282,231 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselCreate.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselCreate.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CarouselCreate.vue?vue&type=template&id=405ce130& */ "./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130&");
+/* harmony import */ var _CarouselCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarouselCreate.vue?vue&type=script&lang=js& */ "./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CarouselCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/carousel/CarouselCreate.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselCreate.vue?vue&type=template&id=405ce130& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselCreate.vue?vue&type=template&id=405ce130&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselCreate_vue_vue_type_template_id_405ce130___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselEdit.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselEdit.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CarouselEdit.vue?vue&type=template&id=c8c8a384& */ "./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384&");
+/* harmony import */ var _CarouselEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarouselEdit.vue?vue&type=script&lang=js& */ "./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CarouselEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/carousel/CarouselEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselEdit.vue?vue&type=template&id=c8c8a384& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselEdit.vue?vue&type=template&id=c8c8a384&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselEdit_vue_vue_type_template_id_c8c8a384___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselList.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselList.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CarouselList.vue?vue&type=template&id=e758f25c& */ "./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c&");
+/* harmony import */ var _CarouselList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarouselList.vue?vue&type=script&lang=js& */ "./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& */ "./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CarouselList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/carousel/CarouselList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselList.vue?vue&type=style&index=0&scope=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=style&index=0&scope=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CarouselList.vue?vue&type=template&id=e758f25c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carousel/CarouselList.vue?vue&type=template&id=e758f25c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselList_vue_vue_type_template_id_e758f25c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

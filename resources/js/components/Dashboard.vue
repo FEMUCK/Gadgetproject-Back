@@ -38,6 +38,9 @@
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
                                         <router-link to="/admin/product" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box"></i><span class="kt-menu__link-text">สินค้า</span></router-link>
                                     </li>
+                                    <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
+                                        <router-link to="/admin/carousel" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-document"></i><span class="kt-menu__link-text">สไลด์</span></router-link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
