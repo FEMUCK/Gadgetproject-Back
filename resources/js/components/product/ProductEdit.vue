@@ -26,8 +26,8 @@
                                         <div class="col-lg-12 mt-3">
                                             <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
                                                 <label>หมวดหมู่ *</label>
-                                                <select class="form-control form-control-pill" v-model="productCategory">
-                                                    <option :value="categoryList._id" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
+                                                <select class="form-control form-control-pill">
+                                                    <option v-model="productCategory" :value="categoryList._id" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
                                                 </select>
                                             </div>
                                             <span v-if="errors.productCategory" class="error">{{errors.productCategory}}</span>

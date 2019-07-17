@@ -44596,7 +44596,9 @@ var render = function() {
                                   _c("img", {
                                     staticClass: "img-thumb",
                                     attrs: {
-                                      src: "/storage/" + categoryList.imageName
+                                      src:
+                                        "https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/" +
+                                        categoryList.imageName
                                     }
                                   })
                                 ]),
@@ -46231,35 +46233,8 @@ var render = function() {
                                 _c(
                                   "select",
                                   {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.productCategory,
-                                        expression: "productCategory"
-                                      }
-                                    ],
                                     staticClass:
-                                      "form-control form-control-pill",
-                                    on: {
-                                      change: function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.productCategory = $event.target
-                                          .multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      }
-                                    }
+                                      "form-control form-control-pill"
                                   },
                                   _vm._l(_vm.categoryLists, function(
                                     categoryList,
@@ -46267,7 +46242,16 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "option",
-                                      { domProps: { value: categoryList._id } },
+                                      {
+                                        domProps: { value: categoryList._id },
+                                        model: {
+                                          value: _vm.productCategory,
+                                          callback: function($$v) {
+                                            _vm.productCategory = $$v
+                                          },
+                                          expression: "productCategory"
+                                        }
+                                      },
                                       [_vm._v(_vm._s(categoryList.name))]
                                     )
                                   }),
@@ -47016,7 +47000,9 @@ var render = function() {
                                   _c("img", {
                                     staticClass: "img-thumb",
                                     attrs: {
-                                      src: "/storage/" + productList.image
+                                      src:
+                                        "https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/" +
+                                        productList.image
                                     }
                                   })
                                 ]),
@@ -63256,8 +63242,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\JIMMY-PC\Desktop\Gadgetproject-Back\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\JIMMY-PC\Desktop\Gadgetproject-Back\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Hawkeye\Desktop\Gadgetproject-Back\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Hawkeye\Desktop\Gadgetproject-Back\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -49,7 +49,7 @@
                                                         </label>
                                                     </td>
                                                     <td>
-                                                        <img class="img-thumb" :src="'/storage/'+categoryList.imageName">
+                                                        <img class="img-thumb" :src="'https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/'+categoryList.imageName">
                                                     </td>
                                                     <td>
                                                         <span v-html="categoryList.icon"></span>

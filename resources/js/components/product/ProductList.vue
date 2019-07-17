@@ -51,7 +51,7 @@
                                                         </label>
                                                     </td>
                                                     <td>
-                                                        <img class="img-thumb" :src="'/storage/'+productList.image">
+                                                        <img class="img-thumb" :src="'https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/'+productList.image">
                                                     </td>
                                                     <td><span class="kt-widget11__sub">{{productList.name}}</span></td>
                                                     <td>{{productList.category}}</td>
