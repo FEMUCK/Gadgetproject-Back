@@ -23,7 +23,7 @@ class MemberController extends Controller
 
     public function EditMember($id,Request $request) {
         $member = Member::find($id);
-        $member->tier = $request->get('memberTier');
+        $member->tier = (integer) $request->get('memberTier');
         $member->save();
     }
 

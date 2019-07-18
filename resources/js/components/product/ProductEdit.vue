@@ -26,8 +26,8 @@
                                         <div class="col-lg-12 mt-3">
                                             <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
                                                 <label>หมวดหมู่ *</label>
-                                                <select class="form-control form-control-pill">
-                                                    <option v-model="productCategory" :value="categoryList._id" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
+                                                <select class="form-control form-control-pill" v-model="productCategory">
+                                                    <option :value="categoryList._id" v-for="(categoryList,index) in categoryLists">{{categoryList.name}}</option>
                                                 </select>
                                             </div>
                                             <span v-if="errors.productCategory" class="error">{{errors.productCategory}}</span>
@@ -112,6 +112,13 @@
                                             <span v-if="errors.productQuantity" class="error">{{errors.productQuantity}}</span>
                                         </div>
                                         <div class="col-lg-12 mt-3">
+                                            <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                                <label>แนะนำ</label>
+                                                <input v-model="productSuggest" type="checkbox">
+                                            </div>
+                                            <span v-if="errors.productSuggest" class="error">{{errors.productSuggest}}</span>
+                                        </div>
+                                        <div class="col-lg-12 mt-3">
                                         <label>รูปภาพ *</label>
                                         <vue-dropzone @vdropzone-success="success" ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
                                         <span v-if="errors.imageName" class="error">{{errors.imageName}}</span>
@@ -160,6 +167,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 productPrice_7:'',
                 productDiscount:'',
                 productQuantity:'',
+                productSuggest:'',
                 imageName:[],
 
                 errors:[],
@@ -177,7 +185,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             getProductInfo()    {
                 axios.get('/api/product/'+this.$route.params.id+'/edit').then(response=>{
                     this.productName=response.data.name;
-                    this.productCategory=response.data.category;
+                    this.productCategory=response.data.category_id;
                     this.productDescription=response.data.description;
                     this.productPrice_1=response.data.price1;
                     this.productPrice_2=response.data.price2;
@@ -188,6 +196,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     this.productPrice_7=response.data.price7;
                     this.productDiscount=response.data.discount;
                     this.productQuantity=response.data.quantity;
+                    this.productSuggest=response.data.suggest;
                     this.imageName=response.data.image;
                 });
             },
@@ -210,6 +219,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     productPrice_7:this.productPrice_7,
                     productDiscount:this.productDiscount,
                     productQuantity:this.productQuantity,
+                    productSuggest:this.productSuggest,
                     imageName:this.imageName,
                 }).then(response=>{
                     this.$router.push('/admin/product');

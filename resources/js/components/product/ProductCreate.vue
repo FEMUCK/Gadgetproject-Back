@@ -112,6 +112,13 @@
                                             <span v-if="errors.productQuantity" class="error">{{errors.productQuantity}}</span>
                                         </div>
                                         <div class="col-lg-12 mt-3">
+                                            <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                                <label>แนะนำ</label>
+                                                <input v-model="productSuggest" type="checkbox">
+                                            </div>
+                                            <span v-if="errors.productSuggest" class="error">{{errors.productSuggest}}</span>
+                                        </div>
+                                        <div class="col-lg-12 mt-3">
                                         <label>รูปภาพ *</label>
                                         <vue-dropzone @vdropzone-success="success" ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
                                         <span v-if="errors.imageName" class="error">{{errors.imageName}}</span>
@@ -159,6 +166,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 productPrice_7:'',
                 productDiscount:'',
                 productQuantity:'',
+                productSuggest:'',
                 imageName:[],
 
                 errors:[],
@@ -192,6 +200,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     productPrice_7:this.productPrice_7,
                     productDiscount:this.productDiscount,
                     productQuantity:this.productQuantity,
+                    productSuggest:this.productSuggest,
                     imageName:this.imageName,
                 }).then(response=>{
                     this.$router.push('/admin/product');

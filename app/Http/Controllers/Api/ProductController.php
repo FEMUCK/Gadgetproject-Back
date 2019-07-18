@@ -64,6 +64,7 @@ class ProductController extends Controller
         $product->price5 = $request->get('productPrice_5');
         $product->price6 = $request->get('productPrice_6');
         $product->price7 = $request->get('productPrice_7');
+        $product->suggest = (Boolean) $request->get('productSuggest');
         $product->save();
 
         return response()->json([
@@ -129,6 +130,7 @@ class ProductController extends Controller
         $product->price5 = $request->get('productPrice_5');
         $product->price6 = $request->get('productPrice_6');
         $product->price7 = $request->get('productPrice_7');
+        $product->suggest = (Boolean) $request->get('productSuggest');
         $product->save();
 
         return response()->json([

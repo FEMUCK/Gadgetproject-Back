@@ -3909,6 +3909,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3937,6 +3944,7 @@ __webpack_require__.r(__webpack_exports__);
       productPrice_7: '',
       productDiscount: '',
       productQuantity: '',
+      productSuggest: '',
       imageName: [],
       errors: [],
       dropzoneOptions: {
@@ -3972,6 +3980,7 @@ __webpack_require__.r(__webpack_exports__);
         productPrice_7: this.productPrice_7,
         productDiscount: this.productDiscount,
         productQuantity: this.productQuantity,
+        productSuggest: this.productSuggest,
         imageName: this.imageName
       }).then(function (response) {
         _this2.$router.push('/admin/product');
@@ -4134,6 +4143,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4162,6 +4178,7 @@ __webpack_require__.r(__webpack_exports__);
       productPrice_7: '',
       productDiscount: '',
       productQuantity: '',
+      productSuggest: '',
       imageName: [],
       errors: [],
       dropzoneOptions: {
@@ -4179,7 +4196,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/product/' + this.$route.params.id + '/edit').then(function (response) {
         _this.productName = response.data.name;
-        _this.productCategory = response.data.category;
+        _this.productCategory = response.data.category_id;
         _this.productDescription = response.data.description;
         _this.productPrice_1 = response.data.price1;
         _this.productPrice_2 = response.data.price2;
@@ -4190,6 +4207,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.productPrice_7 = response.data.price7;
         _this.productDiscount = response.data.discount;
         _this.productQuantity = response.data.quantity;
+        _this.productSuggest = response.data.suggest;
         _this.imageName = response.data.image;
       });
     },
@@ -4216,6 +4234,7 @@ __webpack_require__.r(__webpack_exports__);
         productPrice_7: this.productPrice_7,
         productDiscount: this.productDiscount,
         productQuantity: this.productQuantity,
+        productSuggest: this.productSuggest,
         imageName: this.imageName
       }).then(function (response) {
         _this3.$router.push('/admin/product');
@@ -45960,6 +45979,66 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("แนะนำ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.productSuggest,
+                                      expression: "productSuggest"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.productSuggest)
+                                      ? _vm._i(_vm.productSuggest, null) > -1
+                                      : _vm.productSuggest
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.productSuggest,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.productSuggest = $$a.concat([
+                                              $$v
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.productSuggest = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.productSuggest = $$c
+                                      }
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.productSuggest
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.productSuggest))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "col-lg-12 mt-3" },
@@ -46233,8 +46312,35 @@ var render = function() {
                                 _c(
                                   "select",
                                   {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.productCategory,
+                                        expression: "productCategory"
+                                      }
+                                    ],
                                     staticClass:
-                                      "form-control form-control-pill"
+                                      "form-control form-control-pill",
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.productCategory = $event.target
+                                          .multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      }
+                                    }
                                   },
                                   _vm._l(_vm.categoryLists, function(
                                     categoryList,
@@ -46242,16 +46348,7 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "option",
-                                      {
-                                        domProps: { value: categoryList._id },
-                                        model: {
-                                          value: _vm.productCategory,
-                                          callback: function($$v) {
-                                            _vm.productCategory = $$v
-                                          },
-                                          expression: "productCategory"
-                                        }
-                                      },
+                                      { domProps: { value: categoryList._id } },
                                       [_vm._v(_vm._s(categoryList.name))]
                                     )
                                   }),
@@ -46719,6 +46816,66 @@ var render = function() {
                             _vm.errors.productQuantity
                               ? _c("span", { staticClass: "error" }, [
                                   _vm._v(_vm._s(_vm.errors.productQuantity))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12 mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("แนะนำ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.productSuggest,
+                                      expression: "productSuggest"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.productSuggest)
+                                      ? _vm._i(_vm.productSuggest, null) > -1
+                                      : _vm.productSuggest
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.productSuggest,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.productSuggest = $$a.concat([
+                                              $$v
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.productSuggest = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.productSuggest = $$c
+                                      }
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.productSuggest
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.productSuggest))
                                 ])
                               : _vm._e()
                           ]),
