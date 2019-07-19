@@ -72,6 +72,12 @@ const routes = [
         { 
           path: 'carousel/:id/edit', component: require('./components/carousel/CarouselEdit.vue').default,
         },
+        { 
+          path: 'banner', component: require('./components/banner/BannerList.vue').default,
+        },
+        { 
+          path: 'banner/:id/edit', component: require('./components/banner/BannerEdit.vue').default,
+        },
       ]
     },
 

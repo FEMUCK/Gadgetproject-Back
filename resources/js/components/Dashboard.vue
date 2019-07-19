@@ -3,9 +3,9 @@
             <!-- begin:: Header Mobile -->
             <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
                 <div class="kt-header-mobile__logo">
-                    <a href="demo6/index.html">
+                    <router-link to="/admin/dashboard">
                         <img alt="Logo" src="/admin/media/logos/logo-6-sm.png" />
-                    </a>
+                    </router-link>
                 </div>
                 <div class="kt-header-mobile__toolbar">
                     <div class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left" id="kt_aside_mobile_toggler"><span></span></div>
@@ -40,6 +40,9 @@
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
                                         <router-link to="/admin/carousel" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-document"></i><span class="kt-menu__link-text">สไลด์</span></router-link>
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
+                                        <router-link to="/admin/banner" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-squares-4"></i><span class="kt-menu__link-text">แบนเนอร์</span></router-link>
                                     </li>
                                 </ul>
                             </div>

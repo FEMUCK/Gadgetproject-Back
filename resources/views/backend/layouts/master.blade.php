@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 8
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 <!-- begin::Head -->
@@ -65,8 +52,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
     <link href="/admin/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
     <link href="/admin/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
     <link href="/admin/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
     <link href="/admin/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
     <link href="/admin/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
@@ -208,7 +193,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Page Vendors -->
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="/admin/js/demo6/pages/dashboard.js" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 </body>
