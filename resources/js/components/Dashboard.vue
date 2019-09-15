@@ -33,6 +33,9 @@
                                         <router-link to="/admin/category" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-list-2"></i><span class="kt-menu__link-text">หมวดหมู่</span></router-link>
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
+                                        <router-link to="/admin/sub-category" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-list-2"></i><span class="kt-menu__link-text">หมวดหมู่ย่อย</span></router-link>
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
                                         <router-link to="/admin/member" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-user"></i><span class="kt-menu__link-text">สมาชิก</span></router-link>
                                     </li>
                                     <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">

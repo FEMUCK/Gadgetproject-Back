@@ -49,6 +49,9 @@ const routes = [
           path: 'category/:id/edit', component: require('./components/category/CategoryEdit.vue').default,
         },
         { 
+          path: 'sub-category', component: require('./components/subcategory/SubCategoryList.vue').default,
+        },
+        { 
           path: 'member', component: require('./components/member/MemberList.vue').default,
         },
         { 
