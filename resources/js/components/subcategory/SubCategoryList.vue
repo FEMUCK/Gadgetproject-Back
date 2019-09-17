@@ -12,8 +12,8 @@
                         <div class="kt-portlet__head-toolbar">
                             <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                                 <li class="nav-item">
-                                    <router-link to="/admin/category/create" class="nav-link active">
-                                        สร้างหมวดหมู่
+                                    <router-link to="/admin/sub-category/create" class="nav-link active">
+                                        สร้างหมวดหมู่ย่อย
                                     </router-link>
                                 </li>
                             </ul>
@@ -36,27 +36,29 @@
                                                     <td style="width:15%">ลำดับ</td>
                                                     <td style="width:20%">รูป</td>
                                                     <td style="width:5%">ไอคอน</td>
-                                                    <td style="width:15%">ชื่อหมวดหมู่</td>
+                                                    <td style="width:15%">ชื่อหมวดหมู่ย่อย</td>
+                                                    <td style="width:15%">ชื่อหมวดหมู่หลัก</td>
                                                     <td style="width:15%">แก้ไข</td>
                                                     <td style="width:15%">ลบ</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="(categoryList,index) in categoryLists">
+                                                <tr v-for="(subCategoryList,index) in subCategoryLists">
                                                     <td>
                                                         <label class="kt-checkbox kt-checkbox--single">
                                                             {{index+1}}
                                                         </label>
                                                     </td>
                                                     <td>
-                                                        <img class="img-thumb" :src="'https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/'+categoryList.imageName">
+                                                        <img class="img-thumb" :src="'https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/'+subCategoryList.image">
                                                     </td>
                                                     <td>
-                                                        <span v-html="categoryList.icon"></span>
+                                                        <span v-html="subCategoryList.icon"></span>
                                                     </td>
-                                                    <td><span class="kt-widget11__sub">{{categoryList.name}}</span></td>
-                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/category/'+categoryList._id+'/edit'">แก้ไข</router-link></td>
-                                                    <td><button v-on:click="deleteCategory(categoryList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
+                                                    <td><span class="kt-widget11__sub">{{subCategoryList.name}}</span></td>
+                                                    <td><span class="kt-widget11__sub">{{subCategoryList.category_name}}</span></td>
+                                                    <td><router-link class="btn btn-pill btn-warning" :to="'/admin/sub-category/'+subCategoryList._id+'/edit'">แก้ไข</router-link></td>
+                                                    <td><button v-on:click="deleteCategory(subCategoryList._id)" type="button" class="btn btn-pill btn-danger">ลบ</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -86,28 +88,30 @@
 <script>
     export default {
         mounted() {
-            this.getCategoryList();
+            this.getSubCategoryList();
         },
         data()  {
             return {
-                categoryLists:[],
-                categoryList:{
+                subCategoryLists:[],
+                subCategoryList:{
                     _id:'',
                     icon:'',
                     name:'',
+                    category_id:'',
+                    category_name:'',
                     imageName:'',
                 }
             }
         },
         methods: {
-            getCategoryList() {
-                axios.get('/api/category').then(response=>{
-                    this.categoryLists=response.data;
+            getSubCategoryList() {
+                axios.get('/api/sub-category').then(response=>{
+                    this.subCategoryLists=response.data;
                 });
             },
             deleteCategory(index)    {
-                axios.delete('/api/category/'+index).then(response=>{
-                    this.categoryLists=response.data;
+                axios.delete('/api/sub-category/'+index).then(response=>{
+                    this.subCategoryLists=response.data;
                 });
             }
         }

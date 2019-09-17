@@ -52,6 +52,12 @@ const routes = [
           path: 'sub-category', component: require('./components/subcategory/SubCategoryList.vue').default,
         },
         { 
+          path: 'sub-category/create', component: require('./components/subcategory/SubCategoryCreate.vue').default,
+        },
+        { 
+          path: 'sub-category/:id/edit', component: require('./components/subcategory/SubCategoryEdit.vue').default,
+        },
+        { 
           path: 'member', component: require('./components/member/MemberList.vue').default,
         },
         { 

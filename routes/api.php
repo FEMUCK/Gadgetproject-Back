@@ -46,3 +46,5 @@ Route::resource('/product','Api\ProductController');
 Route::resource('/carousel','Api\CarouselController');
 
 Route::resource('/banner','Api\BannerController');
+
+Route::resource('/sub-category','Api\SubCategoryController');

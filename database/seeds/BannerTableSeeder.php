@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BannerTableSeeder extends Seeder
 {
@@ -11,6 +12,16 @@ class BannerTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Banner::class, 8)->create();
+        DB::table('member')->insert([
+            'firstname' => 'Piyakarn',
+            'lastname' => 'Nimmakulvirut',
+            'phone' => '0658528414',
+            'email' => 'jirakarnjim1@gmail.com',
+            'password' => Hash::make('jirakarn12'),
+            'tier' => '1',
+            'activate' => true,
+            'admin' => true,
+            'ban' => false,
+        ]);
     }
 }
