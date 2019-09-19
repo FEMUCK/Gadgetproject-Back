@@ -22,6 +22,20 @@
                                             </div>
                                             <span v-if="errors.carouselName" class="error">{{errors.carouselName}}</span>
                                         </div>
+                                        <div class="col-lg-12">
+                                            <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                                <label>ข้อความบนสไลด์ </label>
+                                                <input v-model="carouselDescription" type="text" class="form-control form-control-pill" placeholder="ข้อความบนสไลด์">
+                                            </div>
+                                            <span v-if="errors.carouselDescription" class="error">{{errors.carouselDescription}}</span>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                                <label>ข้อความบนปุ่ม </label>
+                                                <input v-model="carouselButton" type="text" class="form-control form-control-pill" placeholder="ข้อความบนปุ่ม">
+                                            </div>
+                                            <span v-if="errors.carouselButton" class="error">{{errors.carouselButton}}</span>
+                                        </div>
                                         <div class="col-lg-12 mt-3">
                                             <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
                                                 <label>ตำแหน่ง</label>
@@ -71,6 +85,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 carouselName:'',
                 carouselArrange:'',
                 carouselLink:'',
+                carouselDescription:'',
+                carouselButton:'',
                 errors:[],
                 imageName:[],
 
@@ -89,6 +105,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     this.carouselName = response.data.name;
                     this.carouselArrange = response.data.arrange;
                     this.carouselLink = response.data.link;
+                    this.carouselDescription = response.data.description;
+                    this.carouselButton =response.data.button;
                     this.imageName = response.data.image;
                 });
             },
@@ -98,6 +116,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     carouselName:this.carouselName,
                     carouselArrange:this.carouselArrange,
                     carouselLink:this.carouselLink,
+                    carouselDescription:this.carouselDescription,
+                    carouselButton:this.carouselButton
                 }).then(response=>{
                     this.$router.push('/admin/carousel');
                 }).catch(error=>{

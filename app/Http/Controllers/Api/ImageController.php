@@ -11,6 +11,7 @@ use App\Image;
 class ImageController extends Controller
 {
     public function StoreImage(Request $request)    {
+        
         $image = $request->file('file');
         $imageName = uniqid().$image->getClientOriginalName();
         $image = Storage::disk('spaces')->putFileAs('image', $image, $imageName,'public');

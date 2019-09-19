@@ -47,6 +47,8 @@ class CarouselController extends Controller
         $carousel->name = $request->get('carouselName');
         $carousel->arrange = $request->get('carouselArrange');
         $carousel->link = $request->get('carouselLink');
+        $carousel->description = $request->get('carouselDescription');
+        $carousel->button = $request->get('carouselButton');
         $carousel->image = $request->get('imageName');
         $carousel->save();
     }
@@ -92,6 +94,8 @@ class CarouselController extends Controller
         $carousel->name = $request->get('carouselName');
         $carousel->arrange = $request->get('carouselArrange');
         $carousel->link = $request->get('carouselLink');
+        $carousel->description = $request->get('carouselDescription');
+        $carousel->button = $request->get('carouselButton');
         $carousel->image = $request->get('imageName');
         $carousel->save();
     }

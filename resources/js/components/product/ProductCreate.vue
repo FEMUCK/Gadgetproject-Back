@@ -175,7 +175,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 url: '/api/image',
                 thumbnailWidth: 150,
                 maxFilesize: 2,
-                maxFile:1,
+                maxFile:10,
                 addRemoveLinks: true,
                 },
             }
@@ -211,8 +211,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 });
             },
             success: function(file, response)
-                {
-                    this.imageName=response;
+                {   
+                    this.imageName.push(response);
                 },
         }
     }

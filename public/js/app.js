@@ -2944,6 +2944,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2955,6 +2969,8 @@ __webpack_require__.r(__webpack_exports__);
       carouselName: '',
       carouselArrange: '',
       carouselLink: '',
+      carouselButton: '',
+      carouselDescription: '',
       errors: [],
       imageName: [],
       dropzoneOptions: {
@@ -2974,7 +2990,9 @@ __webpack_require__.r(__webpack_exports__);
         imageName: this.imageName,
         carouselName: this.carouselName,
         carouselArrange: this.carouselArrange,
-        carouselLink: this.carouselLink
+        carouselLink: this.carouselLink,
+        carouselDescription: this.carouselDescription,
+        carouselButton: this.carouselButton
       }).then(function (response) {
         _this.$router.push('/admin/carousel');
       })["catch"](function (error) {
@@ -3061,6 +3079,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3075,6 +3107,8 @@ __webpack_require__.r(__webpack_exports__);
       carouselName: '',
       carouselArrange: '',
       carouselLink: '',
+      carouselDescription: '',
+      carouselButton: '',
       errors: [],
       imageName: [],
       dropzoneOptions: {
@@ -3094,6 +3128,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.carouselName = response.data.name;
         _this.carouselArrange = response.data.arrange;
         _this.carouselLink = response.data.link;
+        _this.carouselDescription = response.data.description;
+        _this.carouselButton = response.data.button;
         _this.imageName = response.data.image;
       });
     },
@@ -3104,7 +3140,9 @@ __webpack_require__.r(__webpack_exports__);
         imageName: this.imageName,
         carouselName: this.carouselName,
         carouselArrange: this.carouselArrange,
-        carouselLink: this.carouselLink
+        carouselLink: this.carouselLink,
+        carouselDescription: this.carouselDescription,
+        carouselButton: this.carouselButton
       }).then(function (response) {
         _this2.$router.push('/admin/carousel');
       })["catch"](function (error) {
@@ -4190,7 +4228,7 @@ __webpack_require__.r(__webpack_exports__);
         url: '/api/image',
         thumbnailWidth: 150,
         maxFilesize: 2,
-        maxFile: 1,
+        maxFile: 10,
         addRemoveLinks: true
       }
     };
@@ -4230,7 +4268,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     success: function success(file, response) {
-      this.imageName = response;
+      this.imageName.push(response);
     }
   }
 });
@@ -44610,6 +44648,95 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ข้อความบนสไลด์ ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselDescription,
+                                      expression: "carouselDescription"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ข้อความบนสไลด์"
+                                  },
+                                  domProps: { value: _vm.carouselDescription },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselDescription =
+                                        $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselDescription
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselDescription))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ข้อความบนปุ่ม ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselButton,
+                                      expression: "carouselButton"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ข้อความบนปุ่ม"
+                                  },
+                                  domProps: { value: _vm.carouselButton },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselButton = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselButton
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselButton))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
                           _c("div", { staticClass: "col-lg-12 mt-3" }, [
                             _c(
                               "div",
@@ -44849,6 +44976,95 @@ var render = function() {
                             _vm.errors.carouselName
                               ? _c("span", { staticClass: "error" }, [
                                   _vm._v(_vm._s(_vm.errors.carouselName))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ข้อความบนสไลด์ ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselDescription,
+                                      expression: "carouselDescription"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ข้อความบนสไลด์"
+                                  },
+                                  domProps: { value: _vm.carouselDescription },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselDescription =
+                                        $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselDescription
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselDescription))
+                                ])
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-input-icon kt-input-icon--pill kt-input-icon--right"
+                              },
+                              [
+                                _c("label", [_vm._v("ข้อความบนปุ่ม ")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.carouselButton,
+                                      expression: "carouselButton"
+                                    }
+                                  ],
+                                  staticClass: "form-control form-control-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ข้อความบนปุ่ม"
+                                  },
+                                  domProps: { value: _vm.carouselButton },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.carouselButton = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.carouselButton
+                              ? _c("span", { staticClass: "error" }, [
+                                  _vm._v(_vm._s(_vm.errors.carouselButton))
                                 ])
                               : _vm._e()
                           ]),
@@ -48318,7 +48534,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "https://gadgetproject-storage.sgp1.digitaloceanspaces.com/image/" +
-                                        productList.image
+                                        productList.image[0]
                                     }
                                   })
                                 ]),
