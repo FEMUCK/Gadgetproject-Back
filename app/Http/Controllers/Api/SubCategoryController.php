@@ -109,6 +109,8 @@ class SubCategoryController extends Controller
         $SubCategory->image = $request->get('imageName');
         $SubCategory->save();
 
+        $category->save();
+
         return response()->json([
             'message' => 'Create Success'
         ],200);
